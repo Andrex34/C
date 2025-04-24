@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    char letter;
+    int result=-1;
+    printf("Введите английскую букву: ");
+    scanf("%c", &letter);
+
+    for (int i = 0; i < strlen(alphabet); i++) {
+        if (alphabet[i] == letter) {
+            result = i + 1;
+        }
+    }
+if (result==-1){
+        printf("Буква не найдена");
+        return 0;
+        }
+
+    printf("Буква '%c' - %d по счету в английском алфавите\n", letter, result);
+    return 0;
+}
