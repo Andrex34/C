@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(){
+    int number;
+    printf("Введите целое число: ");
+    scanf("%d", &number);
+    switch (number % 2) {
+        case 0:
+            printf("%d - четное\n", number);
+            break;
+        case 1:
+            printf("%d - нечетное\n", number);
+            break;
+    }
+return 0;
+}
