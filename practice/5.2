@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[] = "yellow";
+    char low[4];
+    strncpy(low, word + 3, 3);
+    low[3] = '\0';
+    printf("Вырезанная строка: %s\n", low);
+    return 0;
+}
