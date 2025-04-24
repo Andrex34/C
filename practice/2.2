@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct student {
+    int height;
+    struct student* next;
+} student;
+
+student* head = NULL;
+
+//вставка нового ученика в список
+void insert_student(int height) {
+    student* new_student = (student*)malloc(sizeof(student));
+    new_student->height = height;
+    new_student->next = NULL;
+
+    if (head == NULL || head->height <= height) {
+        new_student->next = head;
+        head = new_student;
+    } else {
+        student* current = head;
+        while (current->next != NULL && current->next->height > height) {
+            current = current->next;
+        }
+        new_student->next = current->next;
+        current->next = new_student;
+    }
+}
+
+//вывод текущего списка
+void print_list() {
+    printf("Текущий список: ");
+    student* current = head;
+    while (current != NULL) {
+        printf("%d; ", current->height);
+        current = current->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    int height, count = 0;
+    printf("Введите рост учеников (для завершения введите 0):\n");
+    while (1) {
+        scanf("%d", &height);
+        if (height < 1) break; //конец
+        insert_student(height);
+        print_list();
+        count++;
+        
+    }
+    //Освобождение памяти
+    student* current = head;
+    while (current != NULL) {
+        student* temp = current;
+        current = current->next;
+        free(temp);
+    }
+    return 0;
+}
