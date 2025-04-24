@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int x;
+    printf("Введите количество уровней ёлочки: ");
+    scanf("%d", &x);
+
+    for (int i = 1; i <= x; i++) {
+        for (int j = 0; j < x - i; j++) {
+            printf(" ");
+        }
+        for (int z = 0; z < 1 + 2 * (i - 1); z++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < x - 1; i++) {
+        for (int j = 0; j < x - 1; j++) {
+            printf(" ");
+        }
+        printf("*\n");
+    }
+    return 0;
+}
