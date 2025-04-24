@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char balls[3][7] = {"red", "green", "blue"};
+    strcpy(balls[0], "yellow");
+    printf("Массив шаров:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("ball %s\n", balls[i]);
+    }
+
+    return 0;
+}
