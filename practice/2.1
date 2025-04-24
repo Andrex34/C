@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <math.h>
+
+int calculate_ride_cost(int demand_level, float distance_km, float duration_min) {
+    float base_cost = 29+(demand_level-1)*(69-29)/99.0;
+    
+    float distance_cost = distance_km * 10;
+    float duration_cost = duration_min * 2;
+    
+    float total_cost = base_cost + distance_cost + duration_cost;
+
+    return (int)(total_cost);
+}
+
+int main() {
+    int demand;
+    float distance, duration;
+    
+    printf("Введите уровень спроса (1-100): ");
+    scanf("%d", &demand);
+    printf("Введите расстояние (км): ");
+    scanf("%f", &distance);
+    printf("Введите время (мин): ");
+    scanf("%f", &duration);
+    
+    int cost = calculate_ride_cost(demand, distance, duration);
+    printf("Стоимость поездки: %d руб.\n", cost);
+    
+    return 0;
+}
