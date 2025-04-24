@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int a, b, c, sum;
+    printf("Введите 3 числа: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    int zero = (a==0) || (b==0) || (c==0);
+    int minus = (a<0) + (b<0) + (c<0);
+    int result = !zero * (1-2*(minus%2));
+
+    printf("%d\n", result);
+    
+    return 0;
+}
